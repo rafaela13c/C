@@ -1,28 +1,30 @@
-
 #include <stdio.h>
 
-int main()
-{
-    int n1, n2, n3, med;
-    
-     printf("Digite três números: ");
-    scanf("%d", &n1);
-    scanf("%d", &n2);
-    scanf("%d", &n3);
-    
-    while ((n1 > 0) && (n2 > 0) && (n3 > 0)) {
-        if ((n1 % 2 == 0) && (n2 % 2 == 0) && (n3 % 2 == 0)) { 
-            med = (n1 + n2 + n3) / 3;
-            printf("A média dos três valores é igual a: %d\n", med);
-        } else {
-            printf("Os números não são pares.\n"); 
+int main() {
+    int numero;
+    int soma = 0;
+    int quant = 0;
+
+    while (1) { 
+        printf("Digite um número (ou 0 para encerrar): ");
+        scanf("%d", &numero);
+
+        if (numero == 0) {
+            break; 
         }
-    
-     printf("Digite três números (ou digite 0 para sair): ");
-        scanf("%d", &n1);
-        scanf("%d", &n2);
-        scanf("%d", &n3);
+
+        if (numero % 2 == 0) { 
+            soma += numero; 
+            quant++; 
+        }
     }
 
-return 0;
+    if (quant > 0) { 
+        int med = soma / quant; 
+        printf("A média dos números pares digitados é: %d\n", med);
+    } else {
+        printf("Nenhum número par foi digitado.\n");
+    }
+
+    return 0;
 }
